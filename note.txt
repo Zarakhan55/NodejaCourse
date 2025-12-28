@@ -1,1 +1,3 @@
 hello we are learning fs modules!
+
+const { add,mul} = require ("./mth); use when we miltiple function
