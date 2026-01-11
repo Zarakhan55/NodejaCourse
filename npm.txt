@@ -1,0 +1,62 @@
+🔹 Basic NPM Commands
+| Command              | Description               |
+| -------------------- | ------------------------- |
+| `npm -v`             | Check npm version         |
+| `node -v`            | Check Node.js version     |
+| `npm help`           | Show npm help             |
+| `npm help <command>` | Help for specific command |
+🔹 Project Setup
+| Command           | Description                    |
+| ----------------- | ------------------------------ |
+| `npm init`        | Create `package.json` (manual) |
+| `npm init -y`     | Create `package.json` (auto)   |
+| `npm config list` | Show npm configuration         |
+🔹 Install Packages
+| Command                        | Description                 |
+| ------------------------------ | --------------------------- |
+| `npm install`                  | Install all dependencies    |
+| `npm install <pkg>`            | Install package             |
+| `npm install <pkg>@version`    | Install specific version    |
+| `npm install <pkg> --save`     | Install & save (default)    |
+| `npm install <pkg> --save-dev` | Install as dev dependency   |
+| `npm install <pkg> -g`         | Install globally            |
+| `npm install .`                | Install from current folder |
+🔹 Uninstall / Update
+| Command                  | Description             |
+| ------------------------ | ----------------------- |
+| `npm uninstall <pkg>`    | Remove package          |
+| `npm uninstall <pkg> -g` | Remove global package   |
+| `npm update`             | Update all packages     |
+| `npm update <pkg>`       | Update specific package |
+| `npm outdated`           | Check outdated packages |
+🔹 Package Info
+| Command                | Description             |
+| ---------------------- | ----------------------- |
+| `npm list`             | List installed packages |
+| `npm list --depth=0`   | List top-level packages |
+| `npm list -g`          | List global packages    |
+| `npm view <pkg>`       | View package details    |
+| `npm search <keyword>` | Search package          |
+🔹 Scripts (Very Important 🔥)
+| Command            | Description        |
+| ------------------ | ------------------ |
+| `npm run <script>` | Run custom script  |
+| `npm start`        | Run `start` script |
+| `npm test`         | Run tests          |
+| `npm run dev`      | Run dev script     |
+| `npm stop`         | Stop app           |
+🔹 Cache & Fix
+| Command                   | Description           |
+| ------------------------- | --------------------- |
+| `npm cache clean --force` | Clear npm cache       |
+| `npm audit`               | Check vulnerabilities |
+| `npm audit fix`           | Fix vulnerabilities   |
+| `npm audit fix --force`   | Force fix             |
+🔹 Login & Publish (Advanced)
+| Command         | Description         |
+| --------------- | ------------------- |
+| `npm login`     | Login to npm        |
+| `npm logout`    | Logout              |
+| `npm whoami`    | Show logged-in user |
+| `npm publish`   | Publish package     |
+| `npm unpublish` | Remove package      |
