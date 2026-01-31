@@ -1,47 +1,53 @@
-//Login,logout,profileUpdate,purchase
-// create four customer Event
-const EventEmitter = require('events');
-const eventEmitter = new EventEmitter();
+import readline from "readline";
+import chalk from "chalk";
 
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
 
-const eventCount={
-   "login":0,
-    "logout":0,
-    "profileUpdate":0,
-    "purchase":0
+let tasks = [];
+
+function showMenu() {
+  console.log(chalk.cyan("\n=== TASK MENU ==="));
+  console.log("1. Add Task");
+  console.log("2. View Tasks");
+  console.log("3. Exit");
+
+  rl.question("Choose an option: ", (choice) => {
+    if (choice === "1") {
+      addTask();
+    } else if (choice === "2") {
+      viewTasks();
+    } else if (choice === "3") {
+      console.log(chalk.green("Goodbye 👋"));
+      rl.close();
+    } else {
+      console.log(chalk.red("Invalid choice!"));
+      showMenu();
+    }
+  });
 }
-eventEmitter.on('login',( user)=>{
-    console.log(`User ${user} has logged in.`);
-    eventCount.login+=1;
-});
 
+function addTask() {
+  rl.question("Enter your task: ", (task) => {
+    tasks.push(task);
+    console.log(chalk.yellow("Task added successfully ✅"));
+    showMenu();
+  });
+}
 
-eventEmitter.on('logout',( user)=>{
-    console.log(`User ${user} has logged out.`);
-    eventCount.logout+=1;
-});
+function viewTasks() {
+  console.log(chalk.blue("\nYour Tasks:"));
+  if (tasks.length === 0) {
+    console.log(chalk.red("No tasks added yet."));
+  } else {
+    tasks.forEach((task, index) => {
+      console.log(`${index + 1}. ${task}`);
+    });
+  }
+  showMenu();
+}
 
-eventEmitter.on('profileUpdate',( user)=>{
-    console.log(`User ${user} has updated their profile.`);
-    eventCount.profileUpdate+=1;
-});
-
-eventEmitter.on('purchase',( user)=>{
-    console.log(`User ${user} has made a purchase.`);
-    eventCount.purchase+=1;
-});
-
-// Emitting events
-eventEmitter.emit('login', 'Alice');
-eventEmitter.emit('profileUpdate', 'Alice');
-eventEmitter.emit('purchase', 'Alice');
-eventEmitter.emit('logout', 'Alice');
-
-
-eventEmitter.emit('login', 'Bob');
-eventEmitter.emit('purchase', 'Bob');
-eventEmitter.emit('logout', 'Bob');
-
-console.log("Event counts:", eventCount);
-
-
+// Start app
+showMenu();
